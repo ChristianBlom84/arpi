@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Http\Resources\ArticlesResource;
 use App\Http\Resources\ArticleResource;
+use App\Article;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        return new ArticleResource(Article::all());
+        return new ArticlesResource(Article::with(['author', 'comments'])->paginate());
     }
 
     public function show(Article $article)
