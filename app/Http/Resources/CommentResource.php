@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class ArticleResource extends Resource
+class CommentResource extends Resource
 {
     /**
      * Transform the resource into an array.
@@ -16,14 +16,14 @@ class ArticleResource extends Resource
     public function toArray($request)
     {
         return [
-            'type' => 'articles',
-            'id' => (string)$this->id,
+            'type'          => 'comments',
+            'id'            => (string)$this->id,
             'attributes' => [
-                'title' => $this->title,
+                'body' => $this->body,
             ],
-            'relationships' => new ArticleRelationshipResource($this),
-            'links' => [
-                'self' => route('articles.show', ['article' => $this->id]),
+            'relationships' => new CommentRelationshipResource($this),
+            'links'      => [
+                'self' => route('comments.show', ['comment' => $this->id]),
             ],
         ];
     }

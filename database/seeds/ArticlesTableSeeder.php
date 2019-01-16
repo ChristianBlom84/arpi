@@ -14,7 +14,7 @@ class ArticlesTableSeeder extends Seeder
     {
         Article::create([
             'author_id' => 1,
-            'title' => 'My new article title'
+            'title' => 'This is a very fancy title'
         ]);
     }
 }

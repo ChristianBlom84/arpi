@@ -10,12 +10,13 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        return new ArticlesResource(Article::with(['author', 'comments'])->paginate());
+        return new ArticlesResource(Article::with(['author', 'comments.author'])->paginate());
     }
 
     public function show(Article $article)
     {
         ArticleResource::withoutWrapping();
+
         return new ArticleResource($article);
     }
 }

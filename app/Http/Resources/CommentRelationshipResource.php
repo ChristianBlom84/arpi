@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class ArticleRelationshipResource extends Resource
+class CommentRelationshipResource extends Resource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,13 +17,8 @@ class ArticleRelationshipResource extends Resource
     {
         return [
             'author'   => [
-                'links' => [
-                    'self'    => route('articles.relationships.author', ['article' => $this->id]),
-                    'related' => route('articles.author', ['article' => $this->id]),
-                ],
                 'data'  => new AuthorIdentifierResource($this->author),
             ],
-            'comments' => (new ArticleCommentsRelationshipResource($this->comments))->additional(['article' => $this]),
         ];
     }
 
@@ -31,7 +26,7 @@ class ArticleRelationshipResource extends Resource
     {
         return [
             'links' => [
-                'self' => route('articles.index'),
+                'self' => route('comments.index'),
             ],
         ];
     }

@@ -14,19 +14,21 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('articles', 'ArticleController');
+Route::resource('authors', 'AuthorController');
+Route::resource('comments', 'CommentController');
 
 Route::get(
     'articles/{article}/relationships/author',
     [
-        'uses' => \App\Http\Controllers\ArticleRelationshipController::class . '@author',
-        'as' => 'articles.relationships.author',
+        'uses' => 'ArticleRelationshipController@author',
+        'as' => 'articles.relationships.author'
     ]
 );
 
 Route::get(
     'articles/{article}/author',
     [
-        'uses' => \App\Http\Controllers\ArticleRelationshipController::class . '@author',
+        'uses' => 'ArticleRelationshipController@author',
         'as' => 'articles.author',
     ]
 );
@@ -34,15 +36,15 @@ Route::get(
 Route::get(
     'articles/{article}/relationships/comments',
     [
-        'uses' => \App\Http\Controllers\ArticleRelationshipController::class . '@comments',
+        'uses' => 'ArticleRelationshipController@comments',
         'as' => 'articles.relationships.comments',
     ]
 );
-
 Route::get(
     'articles/{article}/comments',
     [
-        'uses' => \App\Http\Controllers\ArticleRelationshipController::class . '@comments',
+        'uses' => 'ArticleRelationshipController@comments',
         'as' => 'articles.comments',
     ]
 );
+

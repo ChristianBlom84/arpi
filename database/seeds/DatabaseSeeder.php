@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                     $u->comments()->save(factory(App\Comment::class)->create());
                 }
             );
+        
         factory(App\People::class, 2)->create();
 
         factory(App\Article::class, 4)->create();
