@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 Route::resource('articles', 'ArticleController');
 Route::resource('authors', 'AuthorController');
 Route::resource('comments', 'CommentController');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::get(
     'articles/{article}/relationships/author',
