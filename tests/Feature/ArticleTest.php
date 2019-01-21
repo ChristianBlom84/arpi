@@ -16,17 +16,16 @@ class ArticleTest extends TestCase
         $token = $user->generateApiToken();
         $header = ["Authorization" => "Bearer $token"];
         $payload = [
-            "title" => "Lorem",
-            "body" => "Ipsum"
+            "author_id" => "1",
+            "title" => "Lorem"
         ];
 
         // Act
         $this->json("POST", "api/articles", $payload)
             ->assertStatus(201)
             ->assertJson([
-                "id" => 1,
+                "author_id" => "1",
                 "title" => "Lorem",
-                "body" => "Ipsum"
             ]);
     }
 }
