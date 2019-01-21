@@ -76,8 +76,6 @@ class RegisterController extends Controller
         $user->generateApiToken();
 
         return
-            response()->json([
-                'data' => $user->toArray(), 201
-            ]);
+            response()->json(['data' => $user->toArray()], 201);
     }
 }

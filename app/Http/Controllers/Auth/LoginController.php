@@ -63,8 +63,6 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return response()->json([
-            'data' => 'User successfully logged out', 200
-        ]);
+        return response()->json(['data' => 'User successfully logged out'], 200);
     }
 }
