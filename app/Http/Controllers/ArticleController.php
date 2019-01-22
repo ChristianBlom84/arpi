@@ -27,4 +27,11 @@ class ArticleController extends Controller
 
         return response()->json($article, 201);
     }
+
+    public function update(Request $request, Article $article)
+    {
+        $article->update($request->all());
+
+        return response()->json($article, 200);
+    }
 }
